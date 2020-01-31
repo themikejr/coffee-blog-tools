@@ -3,9 +3,6 @@ import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
 
-document.body.style.backgroundColor = "#1d1f21";
-document.body.style.color = "#fff";
-
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
@@ -53,25 +50,23 @@ const Layout = ({ location, title, children }) => {
     )
   }
   return (
-    <div style={{backgroundColor: `#1d1f21`, text: `#fff`}}>
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        backgroundColor: `#1d1f21`,
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
-      <header>{header}</header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
-    </div>
-    </div>
+      <div
+        style={{
+          marginLeft: `auto`,
+          marginRight: `auto`,
+          maxWidth: rhythm(24),
+          backgroundColor: `#1d1f21`,
+          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+        }}
+      >
+        <header>{header}</header>
+        <main>{children}</main>
+        <footer>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </footer>
+      </div>
   )
 }
 
