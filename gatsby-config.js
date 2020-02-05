@@ -10,6 +10,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-clicky`,
+      options: {
+        siteId: "101234781",
+      },
+    },
+    {
       resolve: `gatsby-plugin-sass`,
     },
     {
