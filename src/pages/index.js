@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Bio from "../components/bio"
 import RecentPosts from "../components/recentPosts"
@@ -14,7 +14,15 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
+      <p>
+        I roast, brew, and taste coffee for fun. Along with writing about coffee
+        now and then, I'm slowly building an online &nbsp;
+        <Link to={"/roasts"}>roast log</Link> &nbsp; to help my track my
+        progress and notice trends.
+      </p>
+
       <Bio />
+
       <RecentPosts />
     </Layout>
   )
