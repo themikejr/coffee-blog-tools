@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -32,7 +32,7 @@ const RoastsIndex = ({ data, location }) => {
             <tr>
               <td>{roast.roastisodate}</td>
               <td>{roast.title}</td>
-              <td>{roast.roastbatchnr}</td>
+              <td><Link to={edge.node.id}>{roast.roastbatchnr}</Link></td>
               <td>{roast.computed.weight_loss}</td>
               <td>{roastLength}</td>
             </tr>
