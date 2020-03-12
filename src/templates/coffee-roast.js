@@ -88,7 +88,7 @@ const CoffeeRoastTemplate = ({ data, pageContext, location }) => {
             }}
           >
             <p>{dryLengthMinSec}</p>
-            <p style={{margin: '0'}}>{dryPercentage}</p>
+            <p style={{marginTop: '-1.5rem'}}>{dryPercentage}</p>
           </div>
           <div
             className="malliard"
@@ -100,7 +100,7 @@ const CoffeeRoastTemplate = ({ data, pageContext, location }) => {
             }}
           >
             <p>{malliardLengthMinSec}</p>
-            <p style={{margin: '0'}}>{malliardPercentage}</p>
+            <p style={{marginTop: '-1.5rem'}}>{malliardPercentage}</p>
           </div>
           <div
             className="development"
@@ -112,7 +112,7 @@ const CoffeeRoastTemplate = ({ data, pageContext, location }) => {
             }}
           >
             <p>{developmentLengthMinSec}</p>
-            <p style={{margin: '0'}}>{developmentPercentage}</p>
+            <p style={{marginTop: '-1.5rem'}}>{developmentPercentage}</p>
           </div>
         </div>
         <div
