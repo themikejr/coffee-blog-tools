@@ -7,9 +7,44 @@ import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
 const CoffeeRoastTemplate = ({ data, pageContext, location }) => {
-  console.log(data);
+  console.log(data)
   const roast = data.allRoastsJson.edges[0].node.roast
   const siteTitle = data.site.siteMetadata.title
+
+  const roastLength = roast.computed.totaltime
+  const dryLength = roast.computed.dryphasetime
+  const dryPercentage = `${Math.round((dryLength / roastLength) * 100)}%`
+  const malliardLength = roast.computed.midphasetime
+  const malliardPercentage = `${Math.round(
+    (malliardLength / roastLength) * 100
+  )}%`
+  const developmentLength = roast.computed.finishphasetime
+  const developmentPercentage = `${Math.round(
+    (developmentLength / roastLength) * 100
+  )}%`
+
+  const roastLengthMin = Math.floor(roastLength / 60)
+  const roastLengthSec = String(Math.floor(roastLength % 60)).padStart(2, "0")
+  const roastLengthMinSec = `${roastLengthMin}:${roastLengthSec}`
+
+  const dryLengthMin = Math.floor(dryLength / 60)
+  const dryLengthSec = String(Math.floor(dryLength % 60)).padStart(2, "0")
+  const dryLengthMinSec = `${dryLengthMin}:${dryLengthSec}`
+
+  const malliardLengthMin = Math.floor(malliardLength / 60)
+  const malliardLengthSec = String(Math.floor(malliardLength % 60)).padStart(
+    2,
+    "0"
+  )
+  const malliardLengthMinSec = `${malliardLengthMin}:${malliardLengthSec}`
+
+  const developmentLengthMin = Math.floor(developmentLength / 60)
+  const developmentLengthSec = String(
+    Math.floor(developmentLength % 60)
+  ).padStart(2, "0")
+  const developmentLengthMinSec = `${developmentLengthMin}:${developmentLengthSec}`
+
+  console.log(dryLength)
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -34,9 +69,98 @@ const CoffeeRoastTemplate = ({ data, pageContext, location }) => {
             {roast.roastisodate}
           </p>
         </header>
-        <ul>
-          <li>{roast.computed.weight_loss}</li>
-        </ul>
+        <div
+          style={{
+            width: "100%",
+            height: "4rem",
+            display: "flex",
+            overflow: "none",
+            backgroundColor: "white",
+          }}
+        >
+          <div
+            className="dry"
+            style={{
+              width: dryPercentage,
+              height: "4rem",
+              backgroundColor: "red",
+              textAlign: "center",
+            }}
+          >
+            <p>{dryLengthMinSec}</p>
+            <p>{dryPercentage}</p>
+          </div>
+          <div
+            className="malliard"
+            style={{
+              width: malliardPercentage,
+              height: "4rem",
+              backgroundColor: "blue",
+              textAlign: "center",
+            }}
+          >
+            <p>{malliardLengthMinSec}</p>
+            <p>{malliardPercentage}</p>
+          </div>
+          <div
+            className="development"
+            style={{
+              width: developmentPercentage,
+              height: "4rem",
+              backgroundColor: "green",
+              textAlign: "center",
+            }}
+          >
+            <p>{developmentLengthMinSec}</p>
+            <p>{developmentPercentage}</p>
+          </div>
+        </div>
+        <div
+          style={{
+            width: "100%",
+            height: "2rem",
+            display: "flex",
+            overflow: "none",
+          }}
+        >
+          <div
+            className="dry"
+            style={{
+              width: dryPercentage,
+              height: "2rem",
+              textAlign: "center",
+              fontSize: "medium",
+            }}
+          >
+            Dry
+          </div>
+          <div
+            className="malliard"
+            style={{
+              width: malliardPercentage,
+              height: "2rem",
+              textAlign: "center",
+              fontSize: "medium",
+            }}
+          >
+            Malliard
+          </div>
+          <div
+            className="development"
+            style={{
+              width: developmentPercentage,
+              height: "2rem",
+              textAlign: "center",
+              fontSize: "medium",
+            }}
+          >
+            Development
+          </div>
+        </div>
+
+        <p><b>Total Roast Time:</b>&nbsp;{roastLengthMinSec}</p>
+        <p><b>Weight Loss:</b>&nbsp;{roast.computed.weight_loss}%</p>
+        <p><b>Drop Temp (BT):</b>&nbsp;{roast.computed.DROP_BT}&#8457;</p>
         <hr
           style={{
             marginBottom: rhythm(1),
