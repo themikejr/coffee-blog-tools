@@ -17,7 +17,7 @@ const BlogIndex = ({ data, location }) => {
       <p>
         I roast, brew, and taste coffee for fun. Along with writing about coffee
         now and then, I'm slowly building an online &nbsp;
-        <Link to={"/roasts"}>roast log</Link> &nbsp; to help my track my
+        <Link to={"/roasts"}>roast log</Link> &nbsp; to help track my
         progress and notice trends.
       </p>
 
