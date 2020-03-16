@@ -50,23 +50,30 @@ const Layout = ({ location, title, children }) => {
     )
   }
   return (
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          backgroundColor: `#1d1f21`,
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        <header>{header}</header>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+    <div
+      style={{
+        marginLeft: `auto`,
+        marginRight: `auto`,
+        maxWidth: rhythm(24),
+        backgroundColor: `#1d1f21`,
+        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+      }}
+    >
+      <header>{header}</header>
+      <main>{children}</main>
+      <footer>
+        <hr style={{ background: "white" }} />© {new Date().getFullYear()},
+        Built with
+        {` `}
+        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <div style={{ float: "right", width: "30%", listStyle: 'none' }}>
+          <ul>
+            <li style={{listStyle: 'none'}}><Link to="/articles">Articles</Link></li>
+            <li style={{listStyle: 'none'}}><Link to="/roasts">Roast log</Link></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
   )
 }
 
