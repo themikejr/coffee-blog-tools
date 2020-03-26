@@ -88,7 +88,7 @@ const CoffeeRoastTemplate = ({ data, pageContext, location }) => {
             }}
           >
             <p>{dryLengthMinSec}</p>
-            <p style={{marginTop: '-1.5rem'}}>{dryPercentage}</p>
+            <p style={{ marginTop: "-1.5rem" }}>{dryPercentage}</p>
           </div>
           <div
             className="malliard"
@@ -100,7 +100,7 @@ const CoffeeRoastTemplate = ({ data, pageContext, location }) => {
             }}
           >
             <p>{malliardLengthMinSec}</p>
-            <p style={{marginTop: '-1.5rem'}}>{malliardPercentage}</p>
+            <p style={{ marginTop: "-1.5rem" }}>{malliardPercentage}</p>
           </div>
           <div
             className="development"
@@ -112,7 +112,7 @@ const CoffeeRoastTemplate = ({ data, pageContext, location }) => {
             }}
           >
             <p>{developmentLengthMinSec}</p>
-            <p style={{marginTop: '-1.5rem'}}>{developmentPercentage}</p>
+            <p style={{ marginTop: "-1.5rem" }}>{developmentPercentage}</p>
           </div>
         </div>
         <div
@@ -158,9 +158,38 @@ const CoffeeRoastTemplate = ({ data, pageContext, location }) => {
           </div>
         </div>
 
-        <p><b>Total Roast Time:</b>&nbsp;{roastLengthMinSec}</p>
-        <p><b>Weight Loss:</b>&nbsp;{roast.computed.weight_loss}%</p>
-        <p><b>Drop Temp (BT):</b>&nbsp;{roast.computed.DROP_BT}&#8457;</p>
+        <h2>Charge Conditions</h2>
+        <hr style={{ backgroundColor: "white" }} />
+        <ul style={{ listStyleType: "none" }}>
+          <li>
+            <b>ET:</b>&nbsp;{roast.computed.CHARGE_ET}&#8457;
+          </li>
+          <li>
+            <b>BT:</b>&nbsp;{roast.computed.CHARGE_BT}&#8457;
+          </li>
+        </ul>
+
+        <h2>Drop Conditions</h2>
+        <hr style={{ backgroundColor: "white" }} />
+        <ul style={{ listStyleType: "none" }}>
+          <li>
+            <b>ET:</b>&nbsp;{roast.computed.DROP_ET}&#8457;
+          </li>
+          <li>
+            <b>BT:</b>&nbsp;{roast.computed.DROP_BT}&#8457;
+          </li>
+        </ul>
+
+        <h2>Overall</h2>
+        <hr style={{ backgroundColor: "white" }} />
+        <ul style={{ listStyleType: "none" }}>
+          <li>
+            <b>Total Roast Time:</b>&nbsp;{roastLengthMinSec}
+          </li>
+          <li>
+            <b>Weight Loss:</b>&nbsp;{roast.computed.weight_loss}%
+          </li>
+        </ul>
         <hr
           style={{
             marginBottom: rhythm(1),
