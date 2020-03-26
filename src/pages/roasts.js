@@ -25,14 +25,18 @@ const RoastsIndex = ({ data, location }) => {
         </thead>
         {data.allRoastsJson.edges.map(edge => {
           const roast = edge.node.roast
-          const roastLengthMin = Math.floor(roast.computed.DROP_time / 60);
-          const roastLengthSec = String(Math.floor(roast.computed.DROP_time % 60)).padStart(2, '0');
+          const roastLengthMin = Math.floor(roast.computed.DROP_time / 60)
+          const roastLengthSec = String(
+            Math.floor(roast.computed.DROP_time % 60)
+          ).padStart(2, "0")
           const roastLength = `${roastLengthMin}:${roastLengthSec}`
           return (
             <tr>
               <td>{roast.roastisodate}</td>
               <td>{roast.title}</td>
-              <td><Link to={edge.node.id}>{roast.roastbatchnr}</Link></td>
+              <td>
+                <Link to={edge.node.id}>{roast.roastbatchnr}</Link>
+              </td>
               <td>{roast.computed.weight_loss}</td>
               <td>{roastLength}</td>
             </tr>
@@ -53,7 +57,7 @@ export const pageQuery = graphql`
       }
     }
 
-    allRoastsJson {
+    allRoastsJson(sort: { fields: [roast___roastisodate], order: DESC }) {
       edges {
         node {
           roast {
